@@ -12,3 +12,6 @@ resource "aws_instance" "web-server" {
         Name = "WebServerInstance"
     }
 }
+
+
+#Heredoc for user data script
