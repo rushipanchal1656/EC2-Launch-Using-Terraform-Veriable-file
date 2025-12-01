@@ -35,7 +35,7 @@ variable "instance_name" {
 }
 ```
 
-# 🏗️ Main Configuration (main.tf)
+## 🏗️ Main Configuration (main.tf)
 
 ```bash
 terraform {
