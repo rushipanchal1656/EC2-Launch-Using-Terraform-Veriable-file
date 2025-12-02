@@ -1,8 +1,9 @@
+/*
 provider "aws" {
-  region = "ap-south-1"
+  region = "ap
+  -south-1"
 }
 
-/*
 #Project 1: Create an EC2 instance using variables
 
 #USE VAEIABLES WHICH ARE DEFINED IN variables.tf FILE
@@ -16,7 +17,6 @@ resource "aws_instance" "web-server" {
         Name = "WebServerInstance"
     }
 }
-
 
 
 #Project 2: Use heredoc to create a user data script that installs Apache web server on the EC2 instance
@@ -57,7 +57,6 @@ data "aws_security_group" "aws-sg" {
  vpc_id = "vpc-0b75c5e0c5987f55b"
 }
 
-*/ 
 
 # Practical 4: Use terraform import to bring an existing resources into management
 resource "aws_instance" "web-server" {
@@ -76,3 +75,5 @@ resource "aws_security_group" "aws-sg" {
  vpc_id = "vpc-0b75c5e0c5987f55b"
 
 }
+
+*/ 
