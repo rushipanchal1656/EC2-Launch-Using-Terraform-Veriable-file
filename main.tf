@@ -17,7 +17,7 @@ resource "aws_instance" "web-server" {
     }
 }
 
-*/
+
 
 #Project 2: Use heredoc to create a user data script that installs Apache web server on the EC2 instance
 resource "aws_instance" "apache-server" {
@@ -37,4 +37,42 @@ resource "aws_instance" "apache-server" {
   tags = {
     Name = "Apache_Server_Instance"
   }
+}
+
+
+# Practical 3: Use of Data block to fetch existing security group details
+resource "aws_instance" "web-server" {
+  ami                = var.ami_id
+  instance_type      = var.instance_type
+  key_name           = var.key_name
+  vpc_security_group_ids = [data.aws_security_group.aws-sg.id]
+
+    tags = {
+        Name = "WebServerInstance"
+    }
+}
+
+data "aws_security_group" "aws-sg" {
+ name = "launch-wizard-1"
+ vpc_id = "vpc-0b75c5e0c5987f55b"
+}
+
+*/ 
+
+# Practical 4: Use terraform import to bring an existing resources into management
+resource "aws_instance" "web-server" {
+  ami                = var.ami_id
+  instance_type      = var.instance_type
+  key_name           = var.key_name
+  vpc_security_group_ids = [aws_security_group.aws-sg.id]
+
+    tags = {
+        Name = "WebServerInstance"
+    }
+}
+
+resource "aws_security_group" "aws-sg" {
+ name = "launch-wizard-1"
+ vpc_id = "vpc-0b75c5e0c5987f55b"
+
 }
